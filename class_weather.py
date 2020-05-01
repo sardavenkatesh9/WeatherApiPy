@@ -4,6 +4,10 @@ import pyowm
 class weather:
     _api_key = '6763272ec78ec164d1cce20853cc9108' # private variable of class 
     connection = None
+
+    ### Initialize weather api
+    ### Connection with weather site
+    ### Throw error if connection failed
     def __init__(self):
         try:
             self.connection = pyowm.OWM(self._api_key)
@@ -11,6 +15,10 @@ class weather:
              print('Func : weather initialization ',err )
         return None 
 
+    ### Get Temperature of Indian City
+    ### Temperature is recorded in celsius
+    ### Future modication: Different Countries
+    ###                    Humdity & wind 
     def get_temperature(self,city = 'Mumbai'):
         temperature = 0.0
         try:

@@ -12,16 +12,20 @@ WAIT_SECONDS = 60
 timer = None
 timer_run = False
 tl = Timeloop()
+
+## Time start 
 def start_timer_thread():
     global t1
     tl.start()
     return None
 
+## Get city name runtime logic
 def get_city_name():
     global city
     city = input("Enter Indian City Name Only:\n")
     return None
 
+## Repeat Loop after interval
 @tl.job(interval=timedelta(seconds=WAIT_SECONDS))
 def log_temperature():
     global weather

@@ -5,7 +5,10 @@ import os
 
 class excel:
     _file_name = ''
-    _file = None
+
+    ### Initialize csv logiv
+    ### File Name is based on year month date logic
+    ### Create file if not exists
     def __init__(self):
         self._file_name = os.getcwd() + "\\" + datetime.now().strftime("%Y_%m_%d") + ".csv"
         if not os.path.exists(self._file_name):
@@ -15,7 +18,9 @@ class excel:
         else:
             print('Warning: File already exists')
         return None
-
+    ### Write Data to csv
+    ### Storead as Time, Temperature Value
+    ### Future Modification adding City of recorded temperature
     def write_data(self,data = 0.0):
         with open(self._file_name, "a+")as file:
             writer = csv.writer(file)
