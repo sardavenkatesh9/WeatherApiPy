@@ -11,7 +11,7 @@ class excel:
         if not os.path.exists(self._file_name):
             with open(self._file_name, "w") as file:
                 writer = csv.writer(file)
-                writer.writerow(["SN", "Temperature", "Time"])
+                writer.writerow(["Time", "Temperature"])
         else:
             print('Warning: File already exists')
         return None
@@ -19,7 +19,7 @@ class excel:
     def write_data(self,data = 0.0):
         with open(self._file_name, "a+")as file:
             writer = csv.writer(file)
-            writer.writerow(["loop", str(data), datetime.now().strftime("%H:%M:%S")])
+            writer.writerow([datetime.now().strftime("%H:%M:%S"),str(data)])
         return None
 
             
